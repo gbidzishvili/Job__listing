@@ -1,0 +1,21 @@
+/* You can add global styles to this file, and also import other style files */
+@use "./assets/shared/shared.scss" as *;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 10px;
+  font-family: "League Spartan", sans-serif;
+}
+@include breakpoint(medium) {
+  html {
+    font-size: 14px !important;
+  }
+}
+@include breakpoint(large) {
+  html {
+    font-size: 16px !important;
+  }
+}

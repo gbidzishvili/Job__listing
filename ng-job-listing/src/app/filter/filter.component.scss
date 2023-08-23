@@ -1,0 +1,57 @@
+@use '../../assets/shared/shared.scss' as *;
+
+.filter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    background-color: #fff;
+    padding: 10px;
+    transform: translateY(-20px);
+    margin: 0 auto;
+    border-radius: 0.5rem;
+}
+.tags-cont {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+.tags {
+    display: flex;
+    list-style: none;
+}
+.tag {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    color: $color-primary;
+    background: $filter-tablets;
+    font-size: 1.5rem;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.remove {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $color-primary;
+    padding: 3px;
+    cursor: pointer;
+}
+.clear {
+    font-size: 1rem;
+    color: $dark-grayish-cyan;
+    cursor: pointer;
+}
+@include breakpoint(medium) {
+    .filter {
+        width: 75%;
+    }
+}
+@include breakpoint(large) {
+    .filter {
+        width: 60%;
+    }
+}

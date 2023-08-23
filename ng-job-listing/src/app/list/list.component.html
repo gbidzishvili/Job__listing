@@ -1,0 +1,54 @@
+<app-filter></app-filter>
+<div class="wrapper" *ngFor="let i of list">
+    <img
+        *ngIf="!isMoreThan768"
+        [src]="
+            '../../assets/images/' +
+            replaceSpacesWithHyphens(i.company) +
+            '.svg '
+        "
+        alt="header-image"
+    />
+    <section class="card">
+        <div class="side-line"></div>
+        <div class="info-cont">
+            <img
+                *ngIf="isMoreThan768"
+                [src]="
+                    '../../assets/images/' +
+                    replaceSpacesWithHyphens(i.company) +
+                    '.svg '
+                "
+                alt="header-image"
+            />
+            <div class="info-text">
+                <div class="job-title-cont">
+                    <span class="job-title">{{ i.company }}</span>
+                    <div class="badges">
+                        <div class="new" *ngIf="i.new">NEW!</div>
+                        <div class="featured" *ngIf="i.featured">FEATURED</div>
+                    </div>
+                </div>
+                <div class="position">{{ i.position }}</div>
+                <div class="job-info">
+                    <div>{{ i.postedAt }}</div>
+                    <div class="asterisk">*</div>
+                    <div>{{ i.contract }}</div>
+                    <div class="asterisk">*</div>
+                    <div>{{ i.location }}</div>
+                </div>
+            </div>
+        </div>
+        <div class="tags-cont">
+            <div class="tags" (click)="passValue(i.role)">{{ i.role }}</div>
+            <div class="tags" (click)="passValue(i.level)">{{ i.level }}</div>
+            <div
+                class="tags"
+                (click)="passValue(lang)"
+                *ngFor="let lang of i.languages"
+            >
+                {{ lang }}
+            </div>
+        </div>
+    </section>
+</div>

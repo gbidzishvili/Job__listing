@@ -1,0 +1,14 @@
+<div class="filter" *ngIf="filterIsOn">
+    <ul class="tags-cont">
+        <li class="tags" *ngFor="let item of filterArr">
+            <div class="tag">{{ item }}</div>
+            <div class="remove" (click)="remove(item)">
+                <img
+                    src="../../assets/images/icon-remove.svg"
+                    alt="icon-remove"
+                />
+            </div>
+        </li>
+    </ul>
+    <div class="clear" (click)="clear()">Clear</div>
+</div>
