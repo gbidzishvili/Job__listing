@@ -1,3 +1,20 @@
 <div class="header">
-
+    <div class="filter" (click)="toggle()">
+        <span class="text">FILTER BY</span
+        ><img
+            [ngClass]="{ 'turn-up': expanded, 'turn-down': !expanded }"
+            src="../../assets/images/arr-down.svg"
+            alt="arr-down-icon"
+        />
+    </div>
+    <div class="wrapper">
+        <ul #menuContainer class="expanded" *ngIf="expanded">
+            <li
+                *ngFor="let filterItem of filterbyArr"
+                (click)="filterby(filterItem)"
+            >
+                {{ filterItem }}
+            </li>
+        </ul>
+    </div>
 </div>

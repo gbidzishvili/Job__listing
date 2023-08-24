@@ -6,11 +6,15 @@ import { BehaviorSubject, Subject, Observable } from 'rxjs';
 })
 export class JobDataService {
     value = new Subject();
+    filterbyValue = new Subject();
     constructor(public http: HttpClient) {}
     getJobData(): Observable<any> {
         return this.http.get('../../assets/data.json');
     }
     transferData(value: string) {
         this.value.next(value);
+    }
+    filterBy(val){
+      this.filterbyValue.next(val);
     }
 }

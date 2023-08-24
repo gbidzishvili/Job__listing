@@ -1,4 +1,4 @@
-<app-filter></app-filter>
+<app-filter (newArrEvent)="renewArr($event)"></app-filter>
 <div class="wrapper" *ngFor="let i of list">
     <img
         *ngIf="!isMoreThan768"
@@ -25,8 +25,20 @@
                 <div class="job-title-cont">
                     <span class="job-title">{{ i.company }}</span>
                     <div class="badges">
-                        <div class="new" *ngIf="i.new">NEW!</div>
-                        <div class="featured" *ngIf="i.featured">FEATURED</div>
+                        <div
+                            class="new"
+                            *ngIf="i.new"
+                            (click)="passValue('NEW')"
+                        >
+                            NEW!
+                        </div>
+                        <div
+                            class="featured"
+                            *ngIf="i.featured"
+                            (click)="passValue('FEATURED')"
+                        >
+                            FEATURED
+                        </div>
                     </div>
                 </div>
                 <div class="position">{{ i.position }}</div>
@@ -48,6 +60,13 @@
                 *ngFor="let lang of i.languages"
             >
                 {{ lang }}
+            </div>
+            <div
+                class="tags"
+                (click)="passValue(tool)"
+                *ngFor="let tool of i.tools"
+            >
+                {{ tool }}
             </div>
         </div>
     </section>

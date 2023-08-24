@@ -11,11 +11,11 @@ html {
 }
 @include breakpoint(medium) {
   html {
-    font-size: 14px !important;
+    font-size: 12px !important;
   }
 }
 @include breakpoint(large) {
   html {
-    font-size: 16px !important;
+    font-size: 14px !important;
   }
 }
