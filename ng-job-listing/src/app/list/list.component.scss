@@ -58,7 +58,7 @@
 .new {
     display: flex;
     justify-content: center;
-    align-items: end;
+    align-items: flex-end;
     color: $white;
     background: $color-primary;
     padding: 0.5rem;
@@ -73,7 +73,7 @@
     border-radius: 2rem;
     display: flex;
     font-size: 1rem;
-    align-items: end;
+    align-items: flex-end;
     cursor: pointer;
 }
 .position {
