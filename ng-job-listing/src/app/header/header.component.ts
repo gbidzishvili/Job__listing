@@ -7,8 +7,11 @@ import { JobDataService } from '../job-data.service';
     styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
+    @ViewChild('filterContainer', { static: false })
+    filterContainer: ElementRef;
     @ViewChild('menuContainer', { static: false }) menuContainer: ElementRef;
     expanded;
+    displayNone = false;
     filterbyArr = [
         'Frontend',
         'Fullstack',
@@ -29,13 +32,6 @@ export class HeaderComponent {
         'Featured',
     ];
     constructor(public jobDataService: JobDataService) {}
-    toggle() {
-        this.expanded = !this.expanded;
-    }
-    ngAfterViewInit() {
-        // Here, the menuContainer should be properly initialized.
-        console.log('**', this.menuContainer); // Make sure it's not undefined
-    }
     filterby(val) {
         if (val == 'New') {
             val = 'NEW';
@@ -47,9 +43,12 @@ export class HeaderComponent {
     }
     @HostListener('document:click', ['$event'])
     onClick(event: MouseEvent) {
-        console.log(this.menuContainer);
-        if (!this.menuContainer.nativeElement.contains(event.target)) {
-            this.expanded = false;
+        if (this.menuContainer) {
+            if (!this.menuContainer.nativeElement.contains(event.target)) {
+                this.expanded = false;
+            }
+        } else if (this.filterContainer.nativeElement.contains(event.target)) {
+            this.expanded = true;
         }
     }
 }
